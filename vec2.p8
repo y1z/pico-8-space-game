@@ -8,11 +8,14 @@ function _init()
 	local v2=vec2:new({x=127,y=127})
 	local v3=vec2:new({x=64,y=64})
 	local v4=v3
-
+	v5 = v3
 	v1:print()
 	v2:print()
 	v3:print()
 	v4:print()
+	
+	v5:madd(v1)
+	v5:print()
 	
 end
 -->8
