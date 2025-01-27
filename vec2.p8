@@ -33,12 +33,11 @@ vec2 = {
 	return tbl
 	end,
 	
-	dot=function(self,other)
-		return (self.x * other.x)+(self.y*other.y)
+	dot=function(self,o)
+		return (self.x * o.x)+(self.y*o.y)
 	end,
-	
 	print=function(self)
-	print(tostr(self.x)..","..tostr(self.y))
+		print(tostr(self.x)..","..tostr(self.y))
 	end,
 	
 	add=function(self,o)
