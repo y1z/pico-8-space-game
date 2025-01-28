@@ -8,6 +8,11 @@ edata={
 	s,
 }
 
+f =false
+t =true
+
+xspd =0
+yspd =0
 xbtn = false
 
 function _init()
@@ -17,15 +22,21 @@ function _init()
 end
 
 function _update60()
-	if btn(⬅️) do xbtn = true
-	else xbtn=false end
+	if btn(⬅️) do xspd=-2 end
+	if btn(➡️) do xspd=2 end
+	if btn(⬆️) do yspd=-2 end
+	if btn(⬇️) do yspd=2 end
+	
+	player.p.x+=xspd
+	player.p.y+=yspd
+	xspd=0
+	yspd=0
 end
 
 function _draw()
 	cls()
-	if xbtn do print("❎ btn pressed")end
-	
-	spr(player.s,play,50)
+	p=player.p
+	spr(player.s,p.x,p.y)
 	
 end
 -->8
@@ -33,7 +44,7 @@ end
 player={
  h,
  s,
- pos = vec2:new(),
+ p = vec2:new(),
 }
 -->8
 -- utility
