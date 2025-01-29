@@ -26,6 +26,7 @@ end
 
 function _init()
 	start()
+	
 end
 
 function _update60()
@@ -38,8 +39,7 @@ function _update60()
 	if btn(⬆️) do yspd=-sp*dt end
 	if btn(⬇️) do yspd=sp*dt end
 	
-	player.p.x+=xspd
-	player.p.y+=yspd
+	player.p:madd({x=xspd,y=yspd})
 	xspd=0
 	yspd=0
 	lt=ct
@@ -49,7 +49,6 @@ function _draw()
 	cls()
 	local p=player.p
 	spr(player.s,p.x,p.y)
-	
 end
 
 
@@ -67,10 +66,19 @@ player={
 function gennew(ltbl,rtbl)
 	rtbl=rtbl or {}
 	setmetatable(ltbl,{
-		__index=ltbl
+		__index=rtbl
 })
 return rtbl
 end
+-->8
+-- enemy
+penemy={
+ p=vec2:new()
+}
+
+penemy=gennew(edata,penemy)
+
+ene1=penemy
 __gfx__
 00000000000000008555555800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000000859958000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
